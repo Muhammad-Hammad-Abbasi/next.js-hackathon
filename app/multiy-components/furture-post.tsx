@@ -41,10 +41,10 @@ export default function CenteredDetails() {
                                     <span className="text-gray-500 text-sm">New</span>
                                 </div>
                                 <h2 className="text-xl font-semibold mb-2">
-                                    Loudest à la Madison #1 (L'integral)
+                                    Loudest à la Madison #1 (L&#39;integral)
                                 </h2>
                                 <p className="text-gray-600 mb-4">
-                                    We focus on ergonomics and meeting you where you work. It's
+                                    We focus on ergonomics and meeting you where you work. It&#39;s
                                     only a keystroke away.
                                 </p>
                                 {/* Metadata and Learn More */}
