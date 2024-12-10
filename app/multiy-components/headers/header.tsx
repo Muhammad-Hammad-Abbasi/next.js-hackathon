@@ -32,11 +32,11 @@ export default function Header() {
                 </Link>
               </li>
               <li className=" ">
-                  <Link href={"/productpage"} className="flex items-center gap-1 hover:text-blue-500">
-                    Shop
+                <Link href={"/productpage"} className="flex items-center gap-1 hover:text-blue-500">
+                  Shop
                   <GoChevronDown />
-                  </Link>
-                </li>
+                </Link>
+              </li>
               <li>
                 <Link href={"/about"} className="hover:text-blue-500">
                   About
@@ -99,7 +99,7 @@ export default function Header() {
             <IoSearch size={24} className="text-[#23A6F0]" />
             {/* Cart */}
             <Link href={'/heartcard'} className="flex items-center">
-            <FiShoppingCart size={24} className="text-[#23A6F0]" />
+              <FiShoppingCart size={24} className="text-[#23A6F0]" />
             </Link>
 
             {/* Toggle Button */}
@@ -126,7 +126,7 @@ export default function Header() {
                           <GoChevronDown />
                         </li>
                         <li>
-                          <Link href={"/"} className="hover:text-blue-500">
+                          <Link href={"/about"} className="hover:text-blue-500">
                             About
                           </Link>
                         </li>
