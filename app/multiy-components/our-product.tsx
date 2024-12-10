@@ -4,7 +4,7 @@ export default function Our_Product() {
   return (
     <main className="overflow-hidden">
       {/* Section Browse The Range */}
-      <div className="mt-20 text-[#1d1d1d]">
+      <div className="my-20 text-[#1d1d1d]">
 
         {/* Section Our Products */}
         <div>
@@ -13,7 +13,7 @@ export default function Our_Product() {
           <p className="text-lg text-center font-sans font-semibold text-[#5e5d5d] px-3">Problems trying to resolve the conflict between</p>
 
           <div className="flex justify-center mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20 md:gap:5 lg:gap-6">
               {/* Common Product Container */}
               {[
                 { src: "/one.png", alt: "img-one" },
@@ -30,8 +30,8 @@ export default function Our_Product() {
                     <Image
                       src={product.src}
                       alt={product.alt}
-                      width={250}  // Adjusted width to match container
-                      height={550} // Adjusted height to match container
+                      width={250}  
+                      height={550}
                       className="object-cover"
                     />
                   </div>

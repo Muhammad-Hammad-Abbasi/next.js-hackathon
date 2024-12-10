@@ -98,7 +98,9 @@ export default function Header() {
             {/* Search */}
             <IoSearch size={24} className="text-[#23A6F0]" />
             {/* Cart */}
+            <Link href={'/heartcard'} className="flex items-center">
             <FiShoppingCart size={24} className="text-[#23A6F0]" />
+            </Link>
 
             {/* Toggle Button */}
             <Sheet>
@@ -162,8 +164,8 @@ export default function Header() {
                               </Link>
                             </li>
 
-                            <li className="flex items-center gap-x-1">
-                              <Link href={"/heartcard"} className="hover:text-blue-900">
+                            <li className="">
+                              <Link href={"/heartcard"} className="flex items-center gap-x-1 hover:text-blue-900">
                                 <FiShoppingCart size={24} />
                                 <p>1</p>
                               </Link>
