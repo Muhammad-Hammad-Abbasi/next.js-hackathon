@@ -1,5 +1,5 @@
-import Green_Header from '@/app/multiy-components/green-header'
-import Header from '@/app/multiy-components/header'
+import Green_Header from '@/app/multiy-components/headers/green-header'
+import Header from '@/app/multiy-components/headers/header'
 import ProductDetail from '@/app/multiy-components/heart/heart-product'
 import React from 'react'
 

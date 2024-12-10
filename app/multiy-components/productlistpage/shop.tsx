@@ -12,8 +12,8 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Button } from "@/components/ui/button";
 import JustForYou from "./shop-cart";
-import Green_Header from "../green-header";
-import Header from "../header";
+import Green_Header from "../headers/green-header";
+import Header from "../headers/header";
 
 
 const homePage = [
@@ -219,6 +219,8 @@ function Shop() {
           <Button variant={"outline"} className="text-white bg-blue-500 px-4">Filter</Button>
         </div>
       </div>
+
+      
       {/* Section Four */}
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-6 gap-8 md:gap-2 lg:gap-2 bg-[#FAFAFA] px-6 md:px-14 lg:px-18 py-10 md:py-8 lg:py-8 justify-items-center items-center">
         {["logo1.png", "logo2.png", "logo3.png", "logo4.png", "logo5.png", "logo6.png"].map((logo, index) => (

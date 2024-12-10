@@ -31,14 +31,14 @@ export default function Header() {
                   Home
                 </Link>
               </li>
-              <li className="flex items-center gap-1">
-                <Link href={"/productpage"} className="hover:text-blue-500">
-                  Shop
-                </Link>
-                <GoChevronDown />
-              </li>
+              <li className=" ">
+                  <Link href={"/productpage"} className="flex items-center gap-1 hover:text-blue-500">
+                    Shop
+                  <GoChevronDown />
+                  </Link>
+                </li>
               <li>
-                <Link href={"/"} className="hover:text-blue-500">
+                <Link href={"/about"} className="hover:text-blue-500">
                   About
                 </Link>
               </li>
