@@ -7,8 +7,7 @@ import Our_Product from './multiy-components/our-product'
 import ClassicSection from './multiy-components/clasic-product'
 import Neural from './multiy-components/neural'
 import CenteredDetails from './multiy-components/furture-post'
-import Navbar from './multiy-components/uper-footer'
-import Footer from './multiy-components/footer-2'
+
 
 export default function Home() {
   return (
@@ -21,8 +20,8 @@ export default function Home() {
       <ClassicSection />
       <Neural />
       <CenteredDetails />
-      <Navbar />
-      <Footer />
+      
+   
     </div>
   )
 }

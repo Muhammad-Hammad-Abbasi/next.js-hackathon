@@ -16,10 +16,10 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 
 export default function Header() {
   return (
-    <div className="w-full px-4 md:px-6 py-4 bg-white shadow-md">
+    <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold">
       <div className="flex justify-between items-center">
         {/* Left Section: Logo and Navigation */}
-        <div className="flex items-center gap-12">
+        <div className="flex items-center gap-3 md:gap-2 lg:gap-12">
           {/* Logo */}
           <h2 className="text-2xl font-bold">Bandage</h2>
 
@@ -32,7 +32,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className="flex items-center gap-1">
-                <Link href={"/"} className="hover:text-blue-500">
+                <Link href={"/productpage"} className="hover:text-blue-500">
                   Shop
                 </Link>
                 <GoChevronDown />
@@ -74,15 +74,21 @@ export default function Header() {
             {/* Icons */}
             <ul className="flex items-center gap-x-4 text-[#23A6F0]">
               <li>
-                <IoSearch size={24} />
+                <Link href={'/'}>
+                  <IoSearch size={24} />
+                </Link>
               </li>
-              <li className="flex items-center gap-x-1">
-                <FiShoppingCart size={24} />
-                <p>1</p>
+              <li className="">
+                <Link href={'/heartcard'} className="flex items-center gap-x-1">
+                  <FiShoppingCart size={24} />
+                  <p>1</p>
+                </Link>
               </li>
-              <li className="flex items-center gap-x-1">
-                <CiHeart size={28} />
-                <p>1</p>
+              <li className="">
+                <Link href={'/'} className="flex items-center gap-x-1">
+                  <CiHeart size={28} />
+                  <p>1</p>
+                </Link>
               </li>
             </ul>
           </div>
@@ -103,21 +109,75 @@ export default function Header() {
                 <SheetHeader>
                   <SheetTitle></SheetTitle>
                   <SheetDescription>
-                    <div className="flex justify-center items-center gap-y-6 text-2xl font-sans font-semibold text-[#39393a]">
+                    <div className="flex flex-col justify-center items-center gap-y-6 text-2xl font-sans font-semibold text-[#39393a]">
                       <ul className="flex flex-col items-center gap-8">
+
                         <li>
-                          <Link href={"/"}>Home</Link>
+                          <Link href={"/"} className="hover:text-blue-500">
+                            Home
+                          </Link>
+                        </li>
+                        <li className="flex items-center gap-1">
+                          <Link href={"/productpage"} className="hover:text-blue-500">
+                            Shop
+                          </Link>
+                          <GoChevronDown />
                         </li>
                         <li>
-                          <Link href={"/"}>Product</Link>
+                          <Link href={"/"} className="hover:text-blue-500">
+                            About
+                          </Link>
                         </li>
                         <li>
-                          <Link href={"/"}>Pricing</Link>
+                          <Link href={"/"} className="hover:text-blue-500">
+                            Blog
+                          </Link>
                         </li>
                         <li>
-                          <Link href={"/"}>Contact</Link>
+                          <Link href={"/"} className="hover:text-blue-500">
+                            Contact
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href={"/"} className="hover:text-blue-500">
+                            Pages
+                          </Link>
                         </li>
                       </ul>
+                      {/* Right Section */}
+                      <div className="flex items-center gap-x-4">
+                        {/* Desktop Icons */}
+                        <div className="flex flex-col items-center gap-6">
+                          {/* Login */}
+                          <div className="flex flex-col gap-3 items-center text-[#23A6F0]">
+                            <IoPersonOutline size={30} />
+                            <p>Login / Register</p>
+                          </div>
+
+                          {/* Icons */}
+                          <ul className="flex items-center gap-x-4 text-[#23A6F0]">
+                            <li>
+                              <Link href={"/"} className="hover:text-blue-900">
+                                <IoSearch size={24} />
+                              </Link>
+                            </li>
+
+                            <li className="flex items-center gap-x-1">
+                              <Link href={"/heartcard"} className="hover:text-blue-900">
+                                <FiShoppingCart size={24} />
+                                <p>1</p>
+                              </Link>
+                            </li>
+
+                            <li className="flex items-center gap-x-1">
+                              <Link href={"/"} className="hover:text-blue-900">
+                                <CiHeart size={28} />
+                                <p>1</p>
+                              </Link>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </SheetDescription>
                 </SheetHeader>
@@ -125,7 +185,7 @@ export default function Header() {
             </Sheet>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

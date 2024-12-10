@@ -1,83 +1,116 @@
+import { Input } from "@/components/ui/input";
+import { FaFacebook,FaInstagram,FaTwitter } from "react-icons/fa";
+
+
 export default function Footer() {
-    return (
-      <footer className="bg-white p-5">
-        {/* Divider */}
-        <div className=" border-[#e6e6e6]" />
-  
-        {/* Main Footer Content */}
-        <section className="py-12">
-          <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12">
-            {/* Company Info */}
-            <div>
-              <h2 className="text-[#252b42] text-base font-bold">Company Info</h2>
-              <nav className="flex flex-col gap-2.5 mt-3">
-                <a href="#" className="text-[#727272] text-sm">About Us</a>
-                <a href="#" className="text-[#727272] text-sm">Careers</a>
-                <a href="#" className="text-[#727272] text-sm">We Are Hiring</a>
-                <a href="#" className="text-[#727272] text-sm">Blog</a>
-              </nav>
+  return (
+    <footer className="font-sans font-semibold">
+      <div className="max-w-[1440px] w-full pt-3 px-4 space-y-8 md:px-11 ">
+        <div className="mx-auto max-w-[1170px] w-full ">
+          <div className="flex gap-3 justify-between items-center mb-5 py-6 border-b border-gray-300">
+            <div className="font-bold text-2xl">
+              Bandage
             </div>
-  
-            {/* Legal */}
-            <div>
-              <h2 className="text-[#252b42] text-base font-bold">Legal</h2>
-              <nav className="flex flex-col gap-2.5 mt-3">
-                <a href="#" className="text-[#727272] text-sm">Terms of Service</a>
-                <a href="#" className="text-[#727272] text-sm">Privacy Policy</a>
-                <a href="#" className="text-[#727272] text-sm">Cookies</a>
-                <a href="#" className="text-[#727272] text-sm">Refund Policy</a>
-              </nav>
+            {/* Social Icons Section */}
+            <div className="flex gap-6">
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 transition"
+              >
+                <FaFacebook size={24} />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 transition"
+              >
+                <FaInstagram size={24} />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-700 transition"
+              >
+                <FaTwitter size={24} />
+              </a>
             </div>
-  
-            {/* Features */}
+          </div>
+          {/* first section: Links and Logo */}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 px-4 md:text-left py-4">
+
+            {/* Links Column 1 */}
             <div>
-              <h2 className="text-[#252b42] text-base font-bold">Features</h2>
-              <nav className="flex flex-col gap-2.5 mt-3">
-                <a href="#" className="text-[#727272] text-sm">Business Marketing</a>
-                <a href="#" className="text-[#727272] text-sm">User Analytics</a>
-                <a href="#" className="text-[#727272] text-sm">Live Chat</a>
-                <a href="#" className="text-[#727272] text-sm">Unlimited Support</a>
-              </nav>
-            </div>
-  
-            {/* Resources */}
-            <div>
-              <h2 className="text-[#252b42] text-base font-bold">Resources</h2>
-              <nav className="flex flex-col gap-2.5 mt-3">
-                <a href="#" className="text-[#727272] text-sm">iOS & Android</a>
-                <a href="#" className="text-[#727272] text-sm">Watch a Demo</a>
-                <a href="#" className="text-[#727272] text-sm">Customers</a>
-                <a href="#" className="text-[#727272] text-sm">API</a>
-              </nav>
-            </div>
-  
-            {/* Get in Touch */}
-            <div>
-              <h2 className="text-[#252b42] text-base font-bold">Get In Touch</h2>
-              <div className="mt-3">
-                <div className="relative mb-4">
-                  <input
-                    type="email"
-                    className="w-full sm:w-[220px] h-12 px-4 border border-[#e6e6e6] rounded-lg bg-[#f8f8f8] text-[#727272] text-sm"
-                    placeholder="Your Email"
-                  />
-                  <button className="absolute right-0 top-0 h-12 px-4 bg-blue-500 text-white text-sm rounded-r-md">
-                    Subscribe
-                  </button>
-                </div>
-                <p className="text-[#727272] text-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h3 className="text-Text2 text-md font-bold mb-4 ">Company Info</h3>
+              <div className="flex text-Text text-md font-medium flex-col space-y-3">
+                <p>About Us</p>
+                <p>Carrier</p>
+                <p>We are hiring</p>
+                <p>Blog</p>
               </div>
             </div>
+
+            {/* Links Column 2 */}
+            <div>
+              <h3 className="text-Text2 text-md font-bold mb-4">Legal</h3>
+              <div className="flex text-Text text-md font-medium flex-col space-y-3">
+                <p>About Us</p>
+                <p>Carrier</p>
+                <p>We are hiring</p>
+                <p>Blog</p>
+              </div>
+            </div>
+
+            {/* Links Column 3 */}
+            <div>
+              <h3 className="text-Text2 text-md font-bold mb-4">
+                Features
+              </h3>
+              <div className="flex text-Text text-md font-medium flex-col space-y-3">
+                <p>Business Marketing</p>
+                <p>User Analytic</p>
+                <p>Live Chat</p>
+                <p>Unlimited Support</p>
+              </div>
+            </div>
+            {/* Links Column 4 */}
+            <div>
+              <h3 className="text-Text2 text-md font-bold mb-4">
+                Resources
+              </h3>
+              <div className="flex text-Text2 text-md font-medium flex-col space-y-3">
+                <p>IOS & Android</p>
+                <p>Watch a Demo</p>
+                <p>Customers</p>
+                <p>API</p>
+              </div>
+            </div>
+            {/* Logo */}
+            <div className="flex justify-center  items-center flex-col  md:items-start md:justify-start">
+              <p className="font-bold mb-3 text-Text2 ">Get In Touch</p>
+
+              <div className=" p-4 flex justify-between">
+
+                <Input type="text" placeholder="Email" className="text-left bg-gray-100 border-none outline-none" />
+
+                <p className="bg-blue-500 rounded-r-md text-white items-center px-3 flex justify-end">Subscribe</p>
+              </div>
+              <p className="text-sm">Lore imp sum dolor Amit</p>
+            </div>
+
           </div>
-        </section>
-  
-        {/* Bottom Section */}
-        <section className="bg-[#f9f9f9] py-4">
-          <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-            <p className="text-[#727272] text-sm">Made with love by Finland. All rights reserved.</p>
-          </div>
-        </section>
-      </footer>
-    );
-  }
-  
+        </div>
+
+      </div>
+      {/* Bottom Section */}
+      <div className="py-6 md:mx-auto px-2  md:px-20 lg:px-24 bg-[#FAFAFA] flex items-center justify-start">
+        <div className="flex items-center text-center text-Text1 gap-1 text-sm ">
+          <p>Made With Love By Finland All Right Reserved </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
