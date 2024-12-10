@@ -8,10 +8,8 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import React from "react";
-import { GoChevronDown } from "react-icons/go";
-import { IoPersonOutline, IoSearch } from "react-icons/io5";
+import {  IoSearch } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
-import { CiHeart } from "react-icons/ci";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Button } from "@/components/ui/button";
 import { HiArrowSmRight } from "react-icons/hi";
