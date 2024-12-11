@@ -67,7 +67,7 @@ export default function Contact_Section() {
             </div>
 
             <div className='flex justify-center items-center flex-col mb-10'>
-                <p className='text-lg font-sans font-semibold text-gray-500 mb-5'>WE Can't WAIT TO MEET YOU</p>
+                <p className='text-lg font-sans font-semibold text-gray-500 mb-5'>WE Can&#39;t WAIT TO MEET YOU</p>
                 <h3 className='text-5xl text-[#3c3c3c] font-sans font-bold mb-8 mx-3'>Lets talk</h3>
                 <Button className='bg-blue-500 px-10 py-7 text-lg hover:bg-white hover:text-black'>Try it free now</Button>
             </div>
