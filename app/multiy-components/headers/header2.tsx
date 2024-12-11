@@ -33,17 +33,17 @@ export default function Header_2() {
                             </li>
 
                             <li>
-                                <Link href={"/about"} className="hover:text-blue-500">
+                                <Link href={"/productpage"} className="hover:text-blue-500">
                                     Product
                                 </Link>
                             </li>
                             <li>
-                                <Link href={"/"} className="hover:text-blue-500">
+                                <Link href={"/pricing"} className="hover:text-blue-500">
                                     Pricing
                                 </Link>
                             </li>
                             <li>
-                                <Link href={"/"} className="hover:text-blue-500">
+                                <Link href={"/contact"} className="hover:text-blue-500">
                                     Contact
                                 </Link>
                             </li>
@@ -67,7 +67,9 @@ export default function Header_2() {
                     {/* Mobile Icons */}
                     <div className="flex md:hidden items-center gap-x-4">
                         {/* Search */}
+                        <Link href={"/productpage"}>
                         <IoSearch size={24} className="text-gray-500" />
+                        </Link>
                         {/* Cart */}
                         <Link href={'/heartcard'} className="flex items-center">
                             <FiShoppingCart size={24} className="text-gray-500" />
@@ -92,17 +94,17 @@ export default function Header_2() {
                                                 </li>
 
                                                 <li>
-                                                    <Link href={"/about"} className="hover:text-blue-500">
+                                                    <Link href={"/productpage"} className="hover:text-blue-500">
                                                         Product
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href={"/"} className="hover:text-blue-500">
+                                                    <Link href={"/pricing"} className="hover:text-blue-500">
                                                         Pricing
                                                     </Link>
                                                 </li>
                                                 <li>
-                                                    <Link href={"/"} className="hover:text-blue-500">
+                                                    <Link href={"/contact"} className="hover:text-blue-500">
                                                         Contact
                                                     </Link>
                                                 </li>

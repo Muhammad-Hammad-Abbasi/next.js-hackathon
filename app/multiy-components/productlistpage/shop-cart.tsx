@@ -27,7 +27,7 @@ export default function JustForYou({
           src={image}
           alt={title}
           width={238}
-          height={427}
+          height={310}
           className="w-full object-cover"
         />
       </div>

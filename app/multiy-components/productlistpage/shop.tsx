@@ -238,7 +238,7 @@ function Shop() {
 
 
       {/* Section five */}
-      <div className="flex justify-center py-2 bg-white">
+      <div className="flex justify-center py-5 bg-white">
         <div
           className="grid grid-cols md:grid-cols-4 gap-8
           "

@@ -48,7 +48,7 @@ export default function Header() {
                 </Link>
               </li>
               <li>
-                <Link href={"/"} className="hover:text-blue-500">
+                <Link href={"/contact"} className="hover:text-blue-500">
                   Contact
                 </Link>
               </li>
@@ -136,7 +136,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link href={"/"} className="hover:text-blue-500">
+                          <Link href={"contact/"} className="hover:text-blue-500">
                             Contact
                           </Link>
                         </li>
@@ -171,8 +171,8 @@ export default function Header() {
                               </Link>
                             </li>
 
-                            <li className="flex items-center gap-x-1">
-                              <Link href={"/"} className="hover:text-blue-900">
+                            <li className="">
+                              <Link href={"/heartcard"} className="flex items-center gap-x-1 hover:text-blue-900">
                                 <CiHeart size={28} />
                                 <p>1</p>
                               </Link>
