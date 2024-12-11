@@ -12,8 +12,8 @@ export default function Our_Product() {
           <h1 className="text-3xl text-center font-sans font-bold my-5">BESTSELLER PRODUCTS</h1>
           <p className="text-lg text-center font-sans font-semibold text-[#5e5d5d] px-3">Problems trying to resolve the conflict between</p>
 
-          <div className="flex justify-center mt-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20 md:gap:5 lg:gap-6">
+          <div className="flex justify-center my-20 mx-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20 md:gap:20 lg:gap-18">
               {/* Common Product Container */}
               {[
                 { src: "/one.png", alt: "img-one" },
@@ -25,7 +25,7 @@ export default function Our_Product() {
                 { src: "/seven.png", alt: "img-seven" },
                 { src: "/eight.png", alt: "img-eight" },
               ].map((product, index) => (
-                <div key={index} className="w-[200] h-[550px] flex flex-col">
+                <div key={index} className="w-[250] h-[550px] flex flex-col">
                   <div className="flex justify-center items-center">
                     <Image
                       src={product.src}
