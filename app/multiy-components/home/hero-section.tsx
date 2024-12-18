@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Hero() {
   return (
@@ -25,9 +26,12 @@ export default function Hero() {
           We know how large objects will act,<br />
           but things on a small scale.
         </p>
+
+        <Link href={"/productpage"}>
         <button className="px-8 py-3 text-base md:text-lg font-bold bg-green-500 text-white rounded hover:bg-green-600 transition duration-300">
           SHOP NOW
         </button>
+        </Link>
       </div>
     </main>
   );
