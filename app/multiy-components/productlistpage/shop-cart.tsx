@@ -22,12 +22,12 @@ export default function JustForYou({
   return (
     <div className="w-full bg-white overflow-hidden">
       {/* Product Image */}
-      <div className="w-full h-[310px] flex justify-center items-center">
+      <div className="w-full h-[280px] flex justify-center items-center">
         <Image
           src={image}
           alt={title}
           width={238}
-          height={310}
+          height={280}
           className="w-full object-cover"
         />
       </div>
