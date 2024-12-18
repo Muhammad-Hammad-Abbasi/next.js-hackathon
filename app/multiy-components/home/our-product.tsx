@@ -1,4 +1,105 @@
-import Image from "next/image";
+
+import JustForYou from "../productlistpage/shop-cart";
+
+const homePage = [
+  {
+    id: 1,
+    priceStrikeThrough: 5.38,
+    image: "/card1.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 2,
+    priceStrikeThrough: 5.38,
+    image: "/card2.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 3,
+    priceStrikeThrough: 5.38,
+    image: "/card4.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 4,
+    priceStrikeThrough: 5.38,
+    image: "/card3.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 5,
+    priceStrikeThrough: 5.38,
+    image: "/card5.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 6,
+    priceStrikeThrough: 5.38,
+    image: "/card6.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 7,
+    priceStrikeThrough: 5.38,
+    image: "/card7.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 8,
+    priceStrikeThrough: 5.38,
+    image: "/card8.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 9,
+    priceStrikeThrough: 5.38,
+    image: "/card9.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 10,
+    priceStrikeThrough: 5.38,
+    image: "/card10.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 11,
+    priceStrikeThrough: 5.38,
+    image: "/card11.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+  {
+    id: 12,
+    priceStrikeThrough: 5.38,
+    image: "/card12.png",
+    title: "Graphic Design",
+    description: "English Department",
+    price: 7.54
+  },
+
+]
 
 export default function Our_Product() {
   return (
@@ -12,33 +113,17 @@ export default function Our_Product() {
           <h1 className="text-3xl text-center font-sans font-bold my-5">BESTSELLER PRODUCTS</h1>
           <p className="text-lg text-center font-sans font-semibold text-[#5e5d5d] px-3">Problems trying to resolve the conflict between</p>
 
-          <div className="flex justify-center my-20 mx-5">
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-20 md:gap:20 lg:gap-18">
-              {/* Common Product Container */}
-              {[
-                { src: "/one.png", alt: "img-one" },
-                { src: "/two.png", alt: "img-two" },
-                { src: "/three.png", alt: "img-three" },
-                { src: "/four-img.png", alt: "img-four" },
-                { src: "/five.png", alt: "img-five" },
-                { src: "/six.png", alt: "img-six" },
-                { src: "/seven.png", alt: "img-seven" },
-                { src: "/eight.png", alt: "img-eight" },
-              ].map((product, index) => (
-                <div key={index} className="w-[250] h-[550px] flex flex-col">
-                  <div className="flex justify-center items-center">
-                    <Image
-                      src={product.src}
-                      alt={product.alt}
-                      width={250}  
-                      height={550}
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* Section five */}
+               <div className="flex justify-center py-5 bg-white">
+                 <div
+                   className="grid grid-cols md:grid-cols-4 gap-8
+                   "
+                 >
+                   {homePage.map((product, index) => (
+                     <JustForYou key={index} {...product} />
+                   ))}
+                 </div>
+               </div>
         </div>
       </div>
     </main>

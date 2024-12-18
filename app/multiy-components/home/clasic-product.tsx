@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 
 export default function ClassicSection() {
@@ -16,9 +17,11 @@ export default function ClassicSection() {
           {/* Price and Button */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <p className="text-white text-xl font-semibold">$16.48</p>
+            <Link href="/heartcard">
             <button className="bg-green-500 text-white font-bold px-6 py-4 rounded-sm hover:bg-green-600 transition">
               ADD TO CART
             </button>
+            </Link>
           </div>
         </div>
 
