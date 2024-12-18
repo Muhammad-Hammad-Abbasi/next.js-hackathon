@@ -16,7 +16,7 @@ import { HiArrowSmRight } from "react-icons/hi";
 
 export default function Header_2() {
     return (
-        <div className="w-full px-4 md:px-24 py-4 bg-white font-sans font-semibold">
+        <div className="w-full px-4 md:px-24 py-4 bg-white font-sans font-semibold sticky top-0 z-50 ">
             <div className="flex justify-between items-center">
                 {/* Left Section: Logo and Navigation */}
                 <div className="flex items-center gap-3 md:gap-2 lg:gap-12">

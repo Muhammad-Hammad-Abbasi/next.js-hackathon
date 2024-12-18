@@ -16,7 +16,7 @@ import { HiBars3BottomRight } from "react-icons/hi2";
 
 export default function Header() {
   return (
-    <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold">
+    <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold sticky top-0 z-50 ">
       <div className="flex justify-between items-center">
         {/* Left Section: Logo and Navigation */}
         <div className="flex items-center gap-3 md:gap-2 lg:gap-12">
