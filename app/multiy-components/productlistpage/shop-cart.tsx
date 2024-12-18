@@ -22,25 +22,25 @@ export default function JustForYou({
   return (
     <div className="w-full bg-white overflow-hidden">
       {/* Product Image */}
-      <div className="w-full h-[280px] flex justify-center items-center">
+      <div className="w-full h-[310px] flex justify-center items-center">
         <Image
           src={image}
           alt={title}
           width={238}
-          height={280}
+          height={310}
           className="w-full object-cover"
         />
       </div>
       
       {/* Product Details */}
-      <div className="p-4 flex flex-col gap-2 justify-center items-center">
+      <div className="flex flex-col gap-2 justify-center items-center">
         {/* Product Title */}
-        <h3 className="text-base font-semibold text-gray-800 truncate">
+        <h3 className="text-base font-semibold text-gray-800 ">
           {title}
         </h3>
 
         {/* Product Description */}
-        <p className="text-sm text-gray-600 truncate">
+        <p className="text-sm text-gray-600 ">
           {description}
         </p>
 
