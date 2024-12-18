@@ -28,12 +28,12 @@ export default function JustForYou({
           alt={title}
           width={238}
           height={310}
-          className="w-full object-cover"
+          className="w-full h-[310] object-cover"
         />
       </div>
       
       {/* Product Details */}
-      <div className="flex flex-col gap-2 justify-center items-center">
+      <div className="flex flex-col gap-2 justify-center items-center m-0 p-0">
         {/* Product Title */}
         <h3 className="text-base font-semibold text-gray-800 ">
           {title}
