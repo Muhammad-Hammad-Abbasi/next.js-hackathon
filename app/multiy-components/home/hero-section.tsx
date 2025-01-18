@@ -27,7 +27,7 @@ export default function Hero() {
           but things on a small scale.
         </p>
 
-        <Link href={"/productpage"}>
+        <Link href={"/product"}>
         <button className="px-8 py-3 text-base md:text-lg font-bold bg-green-500 text-white rounded hover:bg-green-600 transition duration-300">
           SHOP NOW
         </button>
