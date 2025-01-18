@@ -32,7 +32,7 @@ export default function Header() {
                 </Link>
               </li>
               <li className=" ">
-                <Link href={"/productpage"} className="flex items-center gap-1 hover:text-blue-500">
+                <Link href={"/products"} className="flex items-center gap-1 hover:text-blue-500">
                   Shop
                   <GoChevronDown />
                 </Link>
@@ -120,7 +120,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li className="flex items-center gap-1">
-                          <Link href={"/productpage"} className="hover:text-blue-500">
+                          <Link href={"/products"} className="hover:text-blue-500">
                             Shop
                           </Link>
                           <GoChevronDown />
