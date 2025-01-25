@@ -4,7 +4,6 @@ import React from "react";
 import Image from "next/image";
 
 export interface Product {
-
   _id: string;
   title: string;
   description: string;

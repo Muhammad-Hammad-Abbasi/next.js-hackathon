@@ -37,7 +37,6 @@ const getProduct = async () => {
 
 async function Shop() {
   const data = await getProduct();
-  console.log(data);
   return (
     <main>
 

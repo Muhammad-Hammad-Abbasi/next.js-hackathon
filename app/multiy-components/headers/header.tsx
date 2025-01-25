@@ -1,3 +1,5 @@
+"use client"
+
 import {
   Sheet,
   SheetContent,
@@ -7,16 +9,82 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import Link from "next/link";
-import React from "react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
-import { IoPersonOutline, IoSearch } from "react-icons/io5";
+import { IoPersonOutline, IoSearch, IoSearchOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import { CiHeart } from "react-icons/ci";
 import { HiBars3BottomRight } from "react-icons/hi2";
+import { client } from "@/sanity/lib/client";
+import { Product } from "../productlistpage/shop-cart";
+
+
 
 export default function Header() {
+  // const data = await getProduct();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isDeatai, setDetail] = useState<any>(false)
+  const [products, setProducts] = useState<any[]>([]);
+
+
+
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const query = `*[_type == "product"]{
+          _id,
+          title,
+          description,
+          "imageUrl": productImage.asset->url,
+           price,
+           tags,
+           dicountPercentage,
+           isNew
+       }`;
+
+      // Fetch data from Sanity API
+      // const data: Product[] = await client.fetch(query);
+      // return data;
+      client.fetch(query).then((data) => {
+        setProducts(data);
+      }).catch((error) => {
+        console.error("Error fetching products:", error);
+      });
+
+    }
+    getProduct();
+  }, [])
+
+  const [filteredProducts, setFilteredProducts] = useState(products);
+
+  // Function to handle search
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    setDetail(false)
+
+    // Filter products based on search query
+    const filtered = products.filter((product) =>
+      product?.title?.toLowerCase().includes(query.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  };
+
+  // Function to toggle the search input visibility
+  const toggleSearching = () => {
+    setIsSearchOpen(!isSearchOpen);
+    setSearchQuery("");
+    setFilteredProducts(products);
+  };
+
+  const onDetail = () => {
+    setDetail(true)
+    setSearchQuery("")
+  }
   return (
-    <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold sticky top-0 z-50 ">
+    <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold  ">
       <div className="flex justify-between items-center">
         {/* Left Section: Logo and Navigation */}
         <div className="flex items-center gap-3 md:gap-2 lg:gap-12">
@@ -74,9 +142,12 @@ export default function Header() {
             {/* Icons */}
             <ul className="flex items-center gap-x-4 text-[#23A6F0]">
               <li>
-                <Link href={'/'}>
-                  <IoSearch size={24} />
-                </Link>
+                {/* <SearchComponent /> */}
+                {/* Search Icon */}
+                <button onClick={toggleSearching} className="text-[24px]" title="button">
+                  <IoSearchOutline />
+                </button>
+
               </li>
               <li className="">
                 <Link href={'/heartcard'} className="flex items-center gap-x-1">
@@ -87,16 +158,23 @@ export default function Header() {
               <li className="">
                 <Link href={'/'} className="flex items-center gap-x-1">
                   <CiHeart size={28} />
-                  <p>1</p>
+
                 </Link>
               </li>
             </ul>
           </div>
 
+
           {/* Mobile Icons */}
           <div className="flex md:hidden items-center gap-x-4">
             {/* Search */}
-            <IoSearch size={24} className="text-[#23A6F0]" />
+            {/* <IoSearch size={24} className="text-[#23A6F0]" /> */}
+
+            {/* Search Icon */}
+            <button onClick={toggleSearching} className="text-[24px]" title="button">
+              <IoSearchOutline />
+            </button>
+
             {/* Cart */}
             <Link href={'/heartcard'} className="flex items-center">
               <FiShoppingCart size={24} className="text-[#23A6F0]" />
@@ -159,9 +237,10 @@ export default function Header() {
                           {/* Icons */}
                           <ul className="flex items-center gap-x-4 text-[#23A6F0]">
                             <li>
-                              <Link href={"/"} className="hover:text-blue-900">
-                                <IoSearch size={24} />
-                              </Link>
+                              {/* Search Icon */}
+                              <button onClick={toggleSearching} className="text-[24px]" title="button">
+                                <IoSearchOutline />
+                              </button>
                             </li>
 
                             <li className="">
@@ -187,7 +266,54 @@ export default function Header() {
             </Sheet>
           </div>
         </div>
+
       </div >
+
+      {/* Search Input (Appears when search icon is clicked) */}
+      {isSearchOpen && (
+        <div className="flex flex-col md:flex-row justify-center items-center md:justify-between lg:justify-around space-y-4 md:space-y-0 md:space-x-8 lg:space-x-16 px-4 py-2">
+          {/* Spacer for width adjustment */}
+          <div className="hidden md:block md:w-[300px] lg:w-[700px]"></div>
+
+          {/* Input field */}
+          <div className="flex justify-center items-center space-y-4 md:space-y-0 space-x-4 w-full md:w-auto">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchQuery}
+              onChange={handleSearch}
+              className="w-full md:w-auto p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 outline-none"
+            />
+            <IoSearchOutline className="text-4xl hover:text-gray-600 cursor-pointer text-blue-300 pb-2" />
+          </div>
+        </div>
+      )}
+
+
+      {/* Display filtered products (can be a separate component or section) */}
+      {searchQuery && !isDeatai && (
+        <div className=" mt-4 p-4 bg-white rounded-md shadow-md">
+          <h2 className="text-xl font-semibold mb-2 ">Search Results</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <div key={product._id} className="border p-4 rounded-md shadow-sm">
+                  <Link href={`/products/${product._id}`} onClick={onDetail}>
+                    <Image src={product.imageUrl} alt={product.title} width={200} height={200} />
+                    <h3 className="font-semibold mt-2">{product.title}</h3>
+
+                    {/* <p>{product.title}</p> */}
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p>No products found.</p>
+            )}
+          </div>
+        </div>
+      )}
+
+
     </div >
   );
 }
