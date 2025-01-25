@@ -12,7 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
-import { IoPersonOutline, IoSearch, IoSearchOutline } from "react-icons/io5";
+import { IoPersonOutline, IoSearchOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import { CiHeart } from "react-icons/ci";
 import { HiBars3BottomRight } from "react-icons/hi2";
@@ -25,8 +25,8 @@ export default function Header() {
   // const data = await getProduct();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isDeatai, setDetail] = useState<any>(false)
-  const [products, setProducts] = useState<any[]>([]);
+  const [isDeatai, setDetail] = useState<boolean>(false)
+  const [products, setProducts] = useState<Product[]>([]);
 
 
 
