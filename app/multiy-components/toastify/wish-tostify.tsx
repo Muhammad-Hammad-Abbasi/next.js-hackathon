@@ -64,6 +64,7 @@ function WishAdd({ id }: { id: string }) {
     return (
         <div>
             <FiHeart
+                size={30}
                 onClick={handleAddToWishlist}
                 className="cursor-pointer font-bold transform transition-all duration-300 hover:-translate-y-3 hover:text-blue-500" />
 
