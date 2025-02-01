@@ -13,23 +13,20 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { GoChevronDown } from "react-icons/go";
 import { IoPersonOutline, IoSearchOutline } from "react-icons/io5";
-import { FiShoppingCart } from "react-icons/fi";
-import { CiHeart } from "react-icons/ci";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { client } from "@/sanity/lib/client";
 import { Product } from "../productlistpage/shop-cart";
+import { IoIosContact } from "react-icons/io";
+import CartIcon from "@/app/localcomponents/cartpage/CartIcon";
+import WishlistIcon from "../WishlistIcon/WishlistIcon";
 
 
 
 export default function Header() {
-  // const data = await getProduct();
   const [searchQuery, setSearchQuery] = useState("");
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isDeatai, setDetail] = useState<boolean>(false)
   const [products, setProducts] = useState<Product[]>([]);
-
-
-
 
   useEffect(() => {
     const getProduct = async () => {
@@ -82,18 +79,21 @@ export default function Header() {
   const onDetail = () => {
     setDetail(true)
     setSearchQuery("")
-  }
+  };
+
+
+
   return (
     <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold  ">
       <div className="flex justify-between items-center">
         {/* Left Section: Logo and Navigation */}
-        <div className="flex items-center gap-3 md:gap-2 lg:gap-12">
+        <div className="flex items-center gap-3 md:gap-2 lg:gap-12 ">
           {/* Logo */}
           <h2 className="text-2xl font-bold">Bandage</h2>
 
           {/* Navigation Links */}
           <nav className="hidden md:flex">
-            <ul className="flex gap-x-6">
+            <ul className="flex gap-x-4 text-md md:text-md lg:text-lg">
               <li>
                 <Link href={"/"} className="hover:text-blue-500">
                   Home
@@ -132,53 +132,53 @@ export default function Header() {
         {/* Right Section */}
         <div className="flex items-center gap-x-4">
           {/* Desktop Icons */}
-          <div className="hidden md:flex items-center gap-x-6">
+          <div className="hidden md:flex items-center gap-x-4">
             {/* Login */}
-            <div className="flex items-center gap-x-2 text-[#23A6F0]">
-              <IoPersonOutline size={20} />
-              <p>Login / Register</p>
+            <div className="flex items-center pl-2 gap-x-2 text-[#23A6F0]">
+              <Link href={"/auth/login"}>
+                <IoIosContact size={24} className="hover:shadow-md hover:shadow-[#23A6F0] rounded-full" />
+              </Link>
+              <Link href={"/auth/login"}>
+                <p className=" hover:text-[#494b4d]">Login </p>
+              </Link>
+              /
+              <Link href={"/auth/signup"}>
+                <p className=" hover:text-[#494b4d]"> Register</p>
+              </Link>
             </div>
 
             {/* Icons */}
-            <ul className="flex items-center gap-x-4 text-[#23A6F0]">
+            <ul className="flex items-center gap-x-2 text-[#23A6F0]">
               <li>
                 {/* <SearchComponent /> */}
                 {/* Search Icon */}
-                <button onClick={toggleSearching} className="text-[24px]" title="button">
+                <button onClick={toggleSearching} className="text-[24px]">
                   <IoSearchOutline />
                 </button>
 
               </li>
+
               <li className="">
-                <Link href={'/heartcard'} className="flex items-center gap-x-1">
-                  <FiShoppingCart size={24} />
-                  <p>1</p>
-                </Link>
+                <CartIcon />
               </li>
               <li className="">
-                <Link href={'/'} className="flex items-center gap-x-1">
-                  <CiHeart size={28} />
-
-                </Link>
+                <WishlistIcon />
               </li>
             </ul>
           </div>
 
 
           {/* Mobile Icons */}
-          <div className="flex md:hidden items-center gap-x-4">
-            {/* Search */}
-            {/* <IoSearch size={24} className="text-[#23A6F0]" /> */}
-
+          <div className="flex md:hidden justify-center items-center gap-x-4">
             {/* Search Icon */}
-            <button onClick={toggleSearching} className="text-[24px]" title="button">
+            <button onClick={toggleSearching} className="text-[24px]">
               <IoSearchOutline />
             </button>
 
             {/* Cart */}
-            <Link href={'/heartcard'} className="flex items-center">
-              <FiShoppingCart size={24} className="text-[#23A6F0]" />
-            </Link>
+            <li className="">
+              <CartIcon />
+            </li>
 
             {/* Toggle Button */}
             <Sheet>
@@ -219,7 +219,7 @@ export default function Header() {
                           </Link>
                         </li>
                         <li>
-                          <Link href={"/"} className="hover:text-blue-500">
+                          <Link href={"/products"} className="hover:text-blue-500">
                             Pages
                           </Link>
                         </li>
@@ -244,17 +244,11 @@ export default function Header() {
                             </li>
 
                             <li className="">
-                              <Link href={"/heartcard"} className="flex items-center gap-x-1 hover:text-blue-900">
-                                <FiShoppingCart size={24} />
-                                <p>1</p>
-                              </Link>
+                              <CartIcon />
                             </li>
 
                             <li className="">
-                              <Link href={"/heartcard"} className="flex items-center gap-x-1 hover:text-blue-900">
-                                <CiHeart size={28} />
-                                <p>1</p>
-                              </Link>
+                              <WishlistIcon />
                             </li>
                           </ul>
                         </div>
@@ -284,7 +278,6 @@ export default function Header() {
               onChange={handleSearch}
               className="w-full md:w-auto p-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-300 outline-none"
             />
-            <IoSearchOutline className="text-4xl hover:text-gray-600 cursor-pointer text-blue-300 pb-2" />
           </div>
         </div>
       )}

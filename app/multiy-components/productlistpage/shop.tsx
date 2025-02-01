@@ -21,7 +21,7 @@ import Link from "next/link";
 const getProduct = async () => {
   const query = `*[_type == "product"][12...24] {
      _id,
-    title,
+      title,
       description,
       "imageUrl": productImage.asset->url,
        price,
@@ -33,10 +33,13 @@ const getProduct = async () => {
   // Fetch data from Sanity API
   const data: Product[] = await client.fetch(query);
   return data;
+
 };
+
 
 async function Shop() {
   const data = await getProduct();
+  console.log(data)
   return (
     <main>
 

@@ -1,14 +1,12 @@
-import Green_Header from '@/app/multiy-components/headers/green-header'
-import Header from '@/app/multiy-components/headers/header'
-import ProductDetail from '@/app/multiy-components/heart/heart-product'
+"use client"
+
+import CartPage from '@/app/localcomponents/cartpage/cartpage'
 import React from 'react'
 
-export default function Heart_Product_Page() {
+export default function Cart() {
   return (
     <div>
-      <Green_Header />
-      <Header />
-      <ProductDetail />
+      <CartPage />
     </div>
   )
 }

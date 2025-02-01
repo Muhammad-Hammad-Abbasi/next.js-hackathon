@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 
@@ -9,9 +7,9 @@ export interface Product {
   description: string;
   imageUrl: string;
   price: number;
-  tags?: string[]; // Tags are optional
+  tags?: string[];
   dicountPercentage?: number;
-  isNew?: boolean; // New Badge is optional
+  isNew?: boolean; 
 }
 
 export default function JustForYou({
@@ -20,18 +18,34 @@ export default function JustForYou({
   imageUrl,
   price,
   dicountPercentage,
+  isNew
 }: Product) {
   return (
     <div className="w-full max-w-sm flex flex-col items-center justify-center bg-white overflow-hidden shadow-lg rounded-lg border border-gray-200">
       {/* Product Image */}
-      <div className="w-full flex justify-center items-center">
+      <div className="relative w-full h-60">
         <Image
           src={imageUrl}
           alt={title}
-          width={238}
-          height={300}
-          className="w-full h-[300px] object-cover"
+          width={100}
+          height={100}
+          className="w-full h-full object-cover"
         />
+        {/* Status Circle */}
+        <div
+          className={`absolute top-4 right-4 w-8 text-[12px] h-8 flex items-center justify-center rounded-full text-white ${isNew
+              ? "bg-green-500"
+              : dicountPercentage
+                ? "bg-red-500"
+                : "bg-yellow-500"
+            }`}
+        >
+          {isNew ? (
+            <span>New</span>
+          ) : (
+            <span>{dicountPercentage}%</span>
+          )}
+        </div>
       </div>
 
       {/* Product Details */}
@@ -41,9 +55,7 @@ export default function JustForYou({
 
         {/* Product Description */}
         <p className="text-md text-gray-600">
-          {description.length > 150
-            ? `${description.slice(0, 150)}...`
-            : description}
+          {description?.substring(0, 100) + "..."}
         </p>
         <div className="flex items-center gap-5">
           {price && dicountPercentage ? (
@@ -63,15 +75,6 @@ export default function JustForYou({
               ${price?.toFixed(2)} {/* Show original price if no discount */}
             </p>
           )}
-        </div>
-
-
-        {/* Color Options */}
-        <div className="flex gap-4 mt-4">
-          <p className="w-6 h-6 rounded-full bg-blue-500"></p>
-          <p className="w-6 h-6 rounded-full bg-[#23856D]"></p>
-          <p className="w-6 h-6 rounded-full bg-[#E77C40]"></p>
-          <p className="w-6 h-6 rounded-full bg-[#252B42]"></p>
         </div>
       </div>
     </div>
