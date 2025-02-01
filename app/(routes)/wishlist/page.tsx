@@ -16,6 +16,7 @@ export default function WishlistPage() {
 
   const handleRemove = (id: string) => {
     dispatch(removeFromWishlist(id));
+
   };
 
   return (
@@ -25,6 +26,7 @@ export default function WishlistPage() {
       <div className="flex justify-between items-center gap-2 mb-4">
         <h1 className="text-2xl font-serif font-bold">Wishlist Items</h1>
         {/* Right Arrow Icon (Link to Product Detail Page) */}
+        
         {wishlist.length > 0 && (
           <div className="flex items-center gap-2">
             <p className="text-xl font-serif">Product Details</p>

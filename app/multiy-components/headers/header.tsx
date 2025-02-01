@@ -81,8 +81,6 @@ export default function Header() {
     setSearchQuery("")
   };
 
-
-
   return (
     <div className="w-full px-4 md:px-6 py-4 bg-white font-sans font-semibold  ">
       <div className="flex justify-between items-center">

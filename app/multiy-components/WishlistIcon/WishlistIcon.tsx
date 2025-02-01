@@ -1,15 +1,23 @@
 // app/components/WishlistIcon.tsx
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/app/store/store";
 import Link from "next/link";
 import { FiHeart } from "react-icons/fi";
 
 export default function WishlistIcon() {
+    const [isMounted, setIsMounted] = useState(false);
     const wishlist = useSelector((state: RootState) => state.wishlist.items);
-
+  
+    // Fix hydration issue
+    useEffect(() => {
+      setIsMounted(true);
+    }, []);
+  
+    if (!isMounted) return null;
+  
     return (
         <div className="relative">
             <Link href="/wishlist">
