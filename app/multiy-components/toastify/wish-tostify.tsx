@@ -72,5 +72,4 @@ function WishAdd({ id }: { id: string }) {
         </div>
     );
 }
-
 export default WishAdd;
