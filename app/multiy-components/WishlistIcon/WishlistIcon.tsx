@@ -12,7 +12,7 @@ export default function WishlistIcon() {
 
     return (
         <div className="relative">
-            <Link href="/wishList">
+            <Link href="/wishlist">
                 <FiHeart size={24} className="text-[#23A6F0] cursor-pointer" />
             </Link>
             {/* Quantity Badge - Always show, even if wishlist is empty */}
