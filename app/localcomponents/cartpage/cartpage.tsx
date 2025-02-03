@@ -10,6 +10,23 @@ import Image from "next/image";
 import Header from "@/app/multiy-components/headers/header";
 import { IoIosArrowDropright } from "react-icons/io"; // Right Arrow Icon
 import Link from "next/link";
+import { NextRequest, NextResponse } from "next/server";
+import { Shipengine } from "@/lib/helper/shipEngine";
+
+
+export async function POST(req: NextRequest) {
+  try {
+    const { rateId } = await req.json();
+    const label = await Shipengine.createLabelFromRate({ rateId });
+    return NextResponse.json(label, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      { error: "An error occurred while creating the label" },
+      { status: 500 }
+    );
+  }
+}
+
 
 export default function CartPage() {
   const dispatch = useDispatch();
@@ -25,12 +42,13 @@ export default function CartPage() {
     }
   }, [dispatch]);
 
+
   // 🔹 Update localStorage whenever cart changes
   useEffect(() => {
     if (cart.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
     } else {
-      localStorage.removeItem("cart"); // Agar cart empty hai, to localStorage se cart key ko remove karo
+      localStorage.removeItem("cart"); 
     }
   }, [cart]);
 
@@ -105,21 +123,15 @@ export default function CartPage() {
               <h3 className="text-3xl font-bold font-mono border border-b-8 border-[#5c5c5c] space-y-4">
                 Order Summary
               </h3>
-              <h2 className="flex items-center text-xl font-light font-mono gap-20 py-2 px-4">
-                Discount: <p>-$0</p>
-              </h2>
-              <hr />
-              <h2 className="flex items-center text-xl font-light font-mono gap-10 py-2 px-4">
-                Delivery Fee: <p>-$0</p>
-              </h2>
-              <hr />
-              <h2 className="flex border border-opacity-10 border-[#5c5c5c] bg-[#dddddd] items-center py-2 px-4 text-2xl font-light font-mono gap-20">
+              <h2 className="flex border border-opacity-10 border-[#5c5c5c] bg-[#FAFAFA] items-center py-2 px-4 text-2xl font-light font-mono gap-20">
                 Total: <p>${calculateTotal()}</p>
               </h2>
             </div>
+            <Link href={"/checkout"}>
             <Button className="bg-blue-500 px-[108px] py-5 text-white hover:text-black text-lg border hover:border-blue-500">
               Check Out
             </Button>
+            </Link>
           </div>
         </div>
       )}

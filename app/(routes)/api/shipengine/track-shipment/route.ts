@@ -1,0 +1,30 @@
+import { Shipengine } from "@/lib/helper/shipEngine";
+import { NextRequest, NextResponse } from "next/server";
+
+export async function GET(
+  req: NextRequest,
+  { params }: {
+  params: Promise<{ labelId: string }>
+}) {
+  const labelId = (await params).labelId;
+  if (!labelId) {
+    return new Response(JSON.stringify({ error: "Missing required fields" }), {
+      status: 400,
+    });
+  }
+
+  try {
+    // you have two options to track
+    // you can track using label id
+    const label = await Shipengine.trackUsingLabelId(labelId);
+   
+    console.log(label);
+
+    return NextResponse.json(label, { status: 200 });
+  } catch (error) {
+    console.log(error);
+    return new Response(JSON.stringify({ error: error }), {
+      status: 500,
+    });
+  }
+}

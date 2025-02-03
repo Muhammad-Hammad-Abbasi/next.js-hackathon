@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
           hostname: 'cdn.sanity.io',
         },
       ],
-    }
+    },
+    env: {
+      SHIPENGINE_API_KEY: process.env.SHIPENGINE_API_KEY,
+    },
 };
 
 export default nextConfig;
