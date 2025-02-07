@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, useEffect, Suspense, useCallback } from "react";
+import { useCallback, useEffect, useState, Suspense } from "react";
 import axios from "axios";
 import { useSearchParams, useRouter } from "next/navigation";
 import { TrackingData } from "@/app/utils/types";
@@ -17,38 +15,43 @@ function TrackShipment() {
   const router = useRouter();
   const queryLabelId = searchParams?.get("labelId") || ""; // Safely fetch labelId
 
-  // Function to handle form submission (wrapped in useCallback)
+  // Function to handle form submission
   const handleSubmit = useCallback(async (labelId: string) => {
     if (!labelId) {
       setError("Label ID is required.");
       return;
     }
 
-    setLoading(true);
-    setError(null);
+    setLoading(true); // Show loading spinner
+    setError(null); // Clear previous errors
 
     try {
       // Update the URL with the labelId query parameter
       router.replace(`/tracking?labelId=${labelId}`);
 
       // Make API request to track shipment
-      const response = await axios.get(`/api/shipengine/tracking/${labelId}`);
-      setTrackingData(response.data);
+      const response = await axios.get(`/api/shipengine/tracking/${labelId}`, {
+        headers: {
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SHIPENGINE_API_KEY}`,
+        },
+      });
+      
+      setTrackingData(response.data); // Set tracking data
     } catch (err) {
       console.error("Error tracking shipment:", err);
-      setError("Failed to track shipment. Please check the label ID and try again.");
+      setError("Failed to track shipment. Please check the label ID and try again."); // Set error message
     } finally {
-      setLoading(false);
+      setLoading(false); // Hide loading spinner
     }
-  }, [router]);
+  }, [router]); // useCallback ki dependency sirf router hai
 
   // Automatically fetch tracking data if labelId is present in query params
   useEffect(() => {
     if (queryLabelId) {
-      setLabelId(queryLabelId);
-      handleSubmit(queryLabelId);
+      setLabelId(queryLabelId); // Set labelId from query params
+      handleSubmit(queryLabelId); // Automatically submit the form
     }
-  }, [queryLabelId, handleSubmit]); // ✅ Now handleSubmit is included in dependencies
+  }, [queryLabelId, handleSubmit]); // Ab dependency array theek hai
 
   return (
     <div className="min-h-screen bg-gray-100 py-8 text-black font-semibold font-sans">
@@ -57,7 +60,7 @@ function TrackShipment() {
           disabled={loading}
           className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:bg-blue-300 ml-10"
         >
-          Back Home
+          Back Home 
         </button>
       </Link>
 

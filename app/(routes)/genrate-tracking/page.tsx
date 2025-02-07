@@ -81,7 +81,8 @@ function Shipement() {
       const labelData = response.data;
 
 
-
+      console.log("Request Data:", labelData.body)
+      console.log("API Response:", response.data);
       if (!labelData.labelId) {
         console.error("❌ Missing labelId in response!");
       }

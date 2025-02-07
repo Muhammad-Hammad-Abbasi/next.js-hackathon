@@ -8,7 +8,7 @@ import { setCart, incrementQuantity, decrementQuantity, removeFromCart } from "@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Header from "@/app/multiy-components/headers/header";
-import { IoIosArrowDropright } from "react-icons/io"; // Right Arrow Icon
+import { IoIosArrowDropright } from "react-icons/io";
 import Link from "next/link";
 import { NextRequest, NextResponse } from "next/server";
 import { Shipengine } from "@/lib/helper/shipEngine";
