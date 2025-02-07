@@ -16,9 +16,9 @@ import { IoPersonOutline, IoSearchOutline } from "react-icons/io5";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { client } from "@/sanity/lib/client";
 import { Product } from "../productlistpage/shop-cart";
-import { IoIosContact } from "react-icons/io";
 import CartIcon from "@/app/localcomponents/cartpage/CartIcon";
 import WishlistIcon from "../WishlistIcon/WishlistIcon";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 
 
@@ -133,16 +133,12 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-x-4">
             {/* Login */}
             <div className="flex items-center pl-2 gap-x-2 text-[#23A6F0]">
-              <Link href={"/auth/login"}>
-                <IoIosContact size={24} className="hover:shadow-md hover:shadow-[#23A6F0] rounded-full" />
-              </Link>
-              <Link href={"/auth/login"}>
-                <p className=" hover:text-[#494b4d]">Login </p>
-              </Link>
-              /
-              <Link href={"/auth/signup"}>
-                <p className=" hover:text-[#494b4d]"> Register</p>
-              </Link>
+              <SignedOut>
+                <SignInButton />
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </div>
 
             {/* Icons */}

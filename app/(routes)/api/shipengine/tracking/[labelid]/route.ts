@@ -3,9 +3,12 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(
   req: NextRequest,
-  { params }: {
-  params: Promise<{ labelId: string }>
-}) {
+  {
+    params,
+  }: {
+    params: Promise<{ labelId: string }>;
+  }
+) {
   const labelId = (await params).labelId;
   if (!labelId) {
     return new Response(JSON.stringify({ error: "Missing required fields" }), {
@@ -14,10 +17,7 @@ export async function GET(
   }
 
   try {
-    // you have two options to track
-    // you can track using label id
     const label = await Shipengine.trackUsingLabelId(labelId);
-   
     console.log(label);
 
     return NextResponse.json(label, { status: 200 });

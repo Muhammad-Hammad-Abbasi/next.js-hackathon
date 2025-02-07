@@ -126,6 +126,8 @@ const Checkout: React.FC = () => {
                 alert("Order placed, but email sending failed.");
             }
         } catch (error) {
+            console.log(error)
+
             alert("There was an issue with the order submission.");
         } finally {
             setLoading(false);

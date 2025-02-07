@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
         { status: 400 }
       );
     }
-
     // Configure email transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',

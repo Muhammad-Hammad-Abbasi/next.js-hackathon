@@ -29,7 +29,15 @@
 
 // export const shipEngine = ShipEngineClient.getInstance();
 
+// import ShipEngine from "shipengine";
+
+//  const Shipengine = new ShipEngine({
+//     apiKey: process.env.SHIPENGINE_API_KEY as string});
+
+// export default Shipengine; 
+
 import ShipEngine from "shipengine";
 
 export const Shipengine = new ShipEngine({
-    apiKey: process.env.SHIPENGINE_API_KEY as string});
+    apiKey: process.env.SHIPENGINE_API_KEY as string,
+  });

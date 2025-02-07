@@ -1,6 +1,6 @@
 // types.ts
 export interface CartItem {
-    _id: string; // Use 'string' if your IDs are strings (e.g., MongoDB ObjectIDs)
+    _id: string; 
     title: string;
     price: number;
     quantity: number;
