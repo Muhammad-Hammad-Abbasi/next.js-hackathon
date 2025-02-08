@@ -109,7 +109,7 @@ function Shipement() {
   return (
     <main>
       <Top_Head />
-      <div className="max-w-screen-lg mx-auto font-sans font-semibold mt-10">
+      <div className="max-w-screen-lg mx-auto m-3 font-sans font-semibold mt-10">
         <form onSubmit={handlesubmit} className="space-y-6">
           {/* To Address Section */}
           <div>
