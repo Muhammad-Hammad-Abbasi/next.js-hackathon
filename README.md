@@ -1,4 +1,5 @@
 
+
 # **My E-commerce Platform Documentation**
 
 
@@ -149,4 +150,3 @@ export default {
 ## **Conclusion**
 This documentation provides a detailed overview of the **E-commerce Platform**, covering its **tech stack, features, API structure, database schema, and deployment details**. Future updates can enhance the functionality by adding new features like user reviews and advanced analytics. 🚀
 
->>>>>>> 7b5c84a0eed4a4c329479a26ed437f93cf80dea5
